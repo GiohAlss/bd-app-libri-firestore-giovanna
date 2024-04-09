@@ -13,7 +13,7 @@
         <h1>WEB APP LIBRI - FIREBASE: FIRESTORE</h1>
 
         <div class="content">
-            
+
             <form id="add-book-form"></form>
             <ul id="book-list"></ul>
 
@@ -22,11 +22,32 @@
     </body>
 
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-app.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase-firestore.js"></script>
 
     <script>
-        /*Dados de credenciais de acesso ao firebase*/
 
+        //Dados de credenciais de acesso ao firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyB3OcVujnA0ooJ4D7n6gdewlyj9atR3Ed8",
+            authDomain: "app-libri-gionna.firebaseapp.com",
+            projectId: "app-libri-gionna",
+            storageBucket: "app-libri-gionna.appspot.com",
+            messagingSenderId: "438313414234",
+            appId: "1:438313414234:web:379212088462a870e23263",
+            measurementId: "G-H2ZVPC3X55"
+        };
+
+        //Inicializa o firebase na aplicação web
+        firebase.initializeApp(firebaseConfig);
+
+        //Inicializa a conexão com o banco nosql firestore
+        const db = firebase.firestore();
+
+        //Teste da conexão com o firebase
+        //console.log('Teste de conexão')
+        //console.log(db);
+        
     </script>
 
     <script src="app.js"></script>
