@@ -9,6 +9,8 @@ function renderBook(doc) {
     let li = document.createElement('li');
     let titulo = document.createElement('span');
     let autor = document.createElement('span');
+    let excluir = document.createElement('div');
+    excluir.textContent='x'
 
     //Carrega os dados ns elementos html
     li.setAttribute('data-id', doc.id);
@@ -20,8 +22,17 @@ function renderBook(doc) {
     //Adicionando os dados de autor e titulo na tag li
     li.appendChild(titulo);
     li.appendChild(autor);
+    li.appendChild(excluir);
 
     // console.log(li);
+
+    excluir.addEventListener('click', (event)=>{
+        event.stopPropagation();
+        let id = event.target.parentElement.getAttribute('data-id');
+
+        db.collection('libri-firestore').doc(id).delete()
+        .then(()=>{window.location.reload ()})
+    });
 
     //Adicionando o li na tag ul
     livroList.appendChild(li);
